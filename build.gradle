@@ -112,8 +112,8 @@ project.tasks['sonarqube'].dependsOn jacocoTestReport
 
 sonarqube {
   properties {
-    property "sonar.projectName", "Reform :: spring-boot-template"
-    property "sonar.projectKey", "uk.gov.hmcts.reform:spring-boot-template"
+    property "sonar.projectName", "DA :: da-cos-api"
+    property "sonar.projectKey", "uk.gov.hmcts.reform:da-cos-api"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
   }
 }
@@ -159,7 +159,7 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json'
 
-  implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+  implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 
   implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: reformLoggingVersion
   implementation group: 'com.github.hmcts.java-logging', name: 'logging-appinsights', version: reformLoggingVersion
@@ -185,7 +185,7 @@ dependencies {
 mainClassName = 'uk.gov.hmcts.reform.demo.Application'
 
 bootJar {
-  archiveFileName = "spring-boot-template.jar"
+  archiveFileName = "da-cos-api.jar"
 
   manifest {
     attributes('Implementation-Version': project.version.toString())
