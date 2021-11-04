@@ -1,0 +1,13 @@
+#!groovy
+
+@Library("Infrastructure")
+
+def type = "java"
+def product = "da"
+def component = "cos-api"
+
+withPipeline(type, product, component) {
+  enableAksStagingDeployment()
+  disableLegacyDeployment()
+  enableSlackNotifications('#da-tech-notifications')
+}
