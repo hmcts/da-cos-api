@@ -30,16 +30,6 @@ allprojects {
 }
 
 sourceSets {
-  integrationTest {
-    java {
-      compileClasspath += main.output + test.output
-      runtimeClasspath += main.output + test.output
-      srcDir('src/integrationTest/java')
-    }
-    resources {
-      srcDir('src/integrationTest/resources')
-    }
-  }
   functionalTest {
     java {
       compileClasspath += main.output
@@ -121,7 +111,7 @@ pmd {
 }
 
 jacocoTestReport {
-  executionData(test, integration)
+  executionData(test)
   reports {
     xml.required = true
     csv.required = false
@@ -141,9 +131,9 @@ def sonarExclusions = [
 sonarqube {
   properties {
     property "sonar.projectName", "DA :: da-cos-api"
-    property "sonar.projectKey", "da-cos-api"
-    property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
+    property "sonar.projectKey", "uk.gov.hmcts.reform:da-cos-api"
     property "sonar.exclusions", sonarExclusions.join(", ")
+    property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
   }
 }
 
