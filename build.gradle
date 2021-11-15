@@ -20,6 +20,13 @@ version = '0.0.1'
 allprojects {
   sourceCompatibility = '11'
   targetCompatibility = '11'
+
+  apply plugin: 'checkstyle'
+  apply plugin: 'com.github.ben-manes.versions'
+  apply plugin: 'io.spring.dependency-management'
+  apply plugin: 'jacoco'
+  apply plugin: 'java'
+  apply plugin: 'org.owasp.dependencycheck'
 }
 
 sourceSets {
@@ -104,7 +111,7 @@ pmd {
 }
 
 jacocoTestReport {
-  executionData(test, integration)
+  executionData(test)
   reports {
     xml.required = true
     csv.required = false
@@ -114,10 +121,18 @@ jacocoTestReport {
 
 project.tasks['sonarqube'].dependsOn jacocoTestReport
 
+def sonarExclusions = [
+  '**uk/gov/hmcts/reform/da/models/**/*',
+  '**uk/gov/hmcts/reform/da/config/**/*',
+  '**uk/gov/hmcts/reform/da/utils/SslVerificationDisabler.*',
+  '**uk/gov/hmcts/reform/da/Application.*'
+]
+
 sonarqube {
   properties {
     property "sonar.projectName", "DA :: da-cos-api"
     property "sonar.projectKey", "uk.gov.hmcts.reform:da-cos-api"
+    property "sonar.exclusions", sonarExclusions.join(", ")
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
   }
 }
