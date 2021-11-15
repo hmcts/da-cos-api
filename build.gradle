@@ -30,6 +30,16 @@ allprojects {
 }
 
 sourceSets {
+  integrationTest {
+    java {
+      compileClasspath += main.output + test.output
+      runtimeClasspath += main.output + test.output
+      srcDir('src/integrationTest/java')
+    }
+    resources {
+      srcDir('src/integrationTest/resources')
+    }
+  }
   functionalTest {
     java {
       compileClasspath += main.output
