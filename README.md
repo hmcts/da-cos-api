@@ -6,7 +6,7 @@
 
 The purpose of this template is to speed up the creation of new Spring applications within HMCTS
 and help keep the same standards across multiple teams. If you need to create a new app, you can
-simply use this one as a starting point and build on top of it. 
+simply use this one as a starting point and build on top of it.
 
 ## What's inside
 
@@ -145,6 +145,12 @@ You should get a response similar to this:
 
 ```
   {"status":"UP","diskSpace":{"status":"UP","total":249644974080,"free":137188298752,"threshold":10485760}}
+```
+
+Find the swagger URL here:
+
+```bash
+  curl http://localhost:4550/swagger-ui.html
 ```
 
 ### Alternative script to run application
