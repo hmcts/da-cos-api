@@ -13,7 +13,6 @@ def component = "cos-api"
 GradleBuilder builder = new GradleBuilder(this, product)
 
 def pipelineConf = new AppPipelineConfig()
-pipelineConf.vaultSecrets = secrets
 
 withPipeline(type, product, component) {
   enableAksStagingDeployment()
