@@ -13,16 +13,9 @@ public final class ApplicationValidation {
 
     }
 
-    public static List<String> validateReadyForPayment(CaseData caseData) {
-        List<String> errors = validateBasicCase(caseData);
-
-        return errors;
-    }
-
     public static List<String> validateIssue(CaseData caseData) {
         return flattenLists(
             validateBasicCase(caseData)
         );
     }
-
 }
