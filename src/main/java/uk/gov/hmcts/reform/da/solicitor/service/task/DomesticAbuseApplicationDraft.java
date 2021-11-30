@@ -20,7 +20,7 @@ public class DomesticAbuseApplicationDraft implements CaseTask {
         final Long caseId = caseDetails.getId();
         final LocalDate createdDate = caseDetails.getCreatedDate().toLocalDate();
 
-        log.info("Executing handler for generating draft divorce application for case id {} ", caseId);
+        log.info("Executing handler for generating draft domestic application for case id {} ", caseId);
 
         // TODO : Application handler goes here.
 

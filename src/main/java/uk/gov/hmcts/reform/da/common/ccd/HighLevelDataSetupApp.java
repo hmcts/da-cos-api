@@ -14,7 +14,7 @@ public class HighLevelDataSetupApp extends DataLoaderToDefinitionStore {
 
     private static final Logger logger = LoggerFactory.getLogger(HighLevelDataSetupApp.class);
 
-    private static final CcdRoleConfig[] CCD_ROLES_NEEDED_FOR_NFD = {
+    private static final CcdRoleConfig[] CCD_ROLES_NEEDED_FOR_DA = {
         new CcdRoleConfig("caseworker-da-courtadmin", "PUBLIC"),
         new CcdRoleConfig("caseworker-da-caseworker", "PUBLIC"),
         new CcdRoleConfig("caseworker-da-superuser", "PUBLIC"),
@@ -46,7 +46,7 @@ public class HighLevelDataSetupApp extends DataLoaderToDefinitionStore {
 
     @Override
     public void addCcdRoles() {
-        for (CcdRoleConfig roleConfig : CCD_ROLES_NEEDED_FOR_NFD) {
+        for (CcdRoleConfig roleConfig : CCD_ROLES_NEEDED_FOR_DA) {
             try {
                 logger.info("\n\nAdding CCD Role {}.", roleConfig);
                 addCcdRole(roleConfig);
