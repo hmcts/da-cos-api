@@ -7,8 +7,6 @@ import uk.gov.hmcts.reform.da.dacase.model.CaseData;
 import uk.gov.hmcts.reform.da.dacase.model.State;
 import uk.gov.hmcts.reform.da.dacase.task.CaseTask;
 
-import java.time.LocalDate;
-
 @Component
 @Slf4j
 public class DomesticAbuseApplicationDraft implements CaseTask {
