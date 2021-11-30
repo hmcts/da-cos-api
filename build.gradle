@@ -173,7 +173,7 @@ def sonarExclusions = [
   '**/uk/gov/hmcts/refrom/da/common/ccd/**',
   '**/uk/gov/hmcts/refrom/da/common/ccd/HighLevelDataSetupApp.java',
   '**/uk/gov/hmcts/reform/da/config/**',
-  '**/uk/gov/hmcts/reform/da/CosApiApplication.java'
+  '**/uk/gov/hmcts/reform/da/CaseApiApplication.java'
 ]
 
 sonarqube {
@@ -357,7 +357,7 @@ dependencies {
   smokeTestImplementation sourceSets.test.runtimeClasspath
 }
 
-mainClassName = 'uk.gov.hmcts.reform.da.Application'
+mainClassName = 'uk.gov.hmcts.reform.da.CaseApiApplication'
 
 bootJar {
   archiveFileName = "da-cos-api.jar"

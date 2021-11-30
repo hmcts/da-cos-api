@@ -7,8 +7,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @SuppressWarnings("HideUtilityClassConstructor") // Spring needs a constructor, its not a utility class
 @EnableSwagger2
-public class CosApiApplication {
+public class CaseApiApplication {
     public static void main(final String[] args) {
-        SpringApplication.run(CosApiApplication.class, args);
+        SpringApplication.run(CaseApiApplication.class, args);
     }
 }
