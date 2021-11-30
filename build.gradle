@@ -156,8 +156,18 @@ project.tasks['sonarqube'].dependsOn jacocoTestReport
 
 def sonarExclusions = [
   '**/uk/gov/hmcts/refrom/da/dacase/**',
+  '**/uk/gov/hmcts/reform/da/dacase/model/access/**',
+  '**/uk/gov/hmcts/reform/da/dacase/search/**',
   '**/uk/gov/hmcts/reform/da/dacase/tab/**',
-  '**/uk/gov/hmcts/refrom/da/solicitor/**/*',
+  '**/uk/gov/hmcts/reform/da/dacase/task/**',
+  '**/uk/gov/hmcts/reform/da/dacase/validation/**',
+  '**/uk/gov/hmcts/reform/da/dacase/workbasket/**',
+  '**/uk/gov/hmcts/refrom/da/solicitor/**',
+  '**/uk/gov/hmcts/refrom/da/solicitor/service/**',
+  '**/uk/gov/hmcts/refrom/da/solicitor/service/page/**',
+  '**/uk/gov/hmcts/refrom/da/solicitor/event/**',
+  '**/uk/gov/hmcts/refrom/da/solicitor/event/page/**',
+  '**/uk/gov/hmcts/refrom/da/idam/**',
   '**/uk/gov/hmcts/refrom/da/common/ccd/**/*',
   '**/uk/gov/hmcts/reform/da/config/**/*',
   '**/uk/gov/hmcts/reform/da/CosApiApplication.java'
