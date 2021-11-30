@@ -171,6 +171,7 @@ def sonarExclusions = [
   '**/uk/gov/hmcts/refrom/da/idam/**',
   '**/uk/gov/hmcts/refrom/da/common/**',
   '**/uk/gov/hmcts/refrom/da/common/ccd/**',
+  '**/uk/gov/hmcts/refrom/da/common/ccd/HighLevelDataSetupApp.java',
   '**/uk/gov/hmcts/reform/da/config/**',
   '**/uk/gov/hmcts/reform/da/CosApiApplication.java'
 ]
