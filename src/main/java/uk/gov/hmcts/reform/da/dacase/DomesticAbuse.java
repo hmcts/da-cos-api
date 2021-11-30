@@ -9,7 +9,7 @@ import uk.gov.hmcts.reform.da.dacase.model.CaseData;
 import uk.gov.hmcts.reform.da.dacase.model.State;
 import uk.gov.hmcts.reform.da.dacase.model.UserRole;
 
-import static uk.gov.hmcts.reform.da.dacase.model.State.Draft;
+import static uk.gov.hmcts.reform.da.dacase.model.State.DRAFT;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.CASE_WORKER;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.COURT_ADMIN;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.DISTRICT_JUDGE;
@@ -39,17 +39,17 @@ public class DomesticAbuse implements CCDConfig<CaseData, State, UserRole> {
                                    "Family Domestic Abuse: non-molestation or occupational order");
         configBuilder.omitHistoryForRoles(SOLICITOR, RESPONDENT_SOLICITOR);
 
-        configBuilder.grant(Draft, CREATE_READ_UPDATE, SOLICITOR);
-        configBuilder.grant(Draft, CREATE_READ_UPDATE, SUPER_USER);
-        configBuilder.grant(Draft, CREATE_READ_UPDATE, CASE_WORKER);
-        configBuilder.grant(Draft, CREATE_READ_UPDATE, COURT_ADMIN);
-        configBuilder.grant(Draft, CREATE_READ_UPDATE, SUPER_USER);
+        configBuilder.grant(DRAFT, CREATE_READ_UPDATE, SOLICITOR);
+        configBuilder.grant(DRAFT, CREATE_READ_UPDATE, SUPER_USER);
+        configBuilder.grant(DRAFT, CREATE_READ_UPDATE, CASE_WORKER);
+        configBuilder.grant(DRAFT, CREATE_READ_UPDATE, COURT_ADMIN);
+        configBuilder.grant(DRAFT, CREATE_READ_UPDATE, SUPER_USER);
 
-        configBuilder.grant(Draft, READ, LEGAL_ADVISOR);
-        configBuilder.grant(Draft, READ, DISTRICT_JUDGE);
+        configBuilder.grant(DRAFT, READ, LEGAL_ADVISOR);
+        configBuilder.grant(DRAFT, READ, DISTRICT_JUDGE);
 
         if (addSystemUpdateRole.isEnvironmentAat()) {
-            configBuilder.grant(Draft, CREATE_READ_UPDATE, SYSTEM_UPDATE);
+            configBuilder.grant(DRAFT, CREATE_READ_UPDATE, SYSTEM_UPDATE);
         }
     }
 }

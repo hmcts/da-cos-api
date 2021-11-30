@@ -14,14 +14,15 @@ public class HighLevelDataSetupApp extends DataLoaderToDefinitionStore {
 
     private static final Logger logger = LoggerFactory.getLogger(HighLevelDataSetupApp.class);
 
+    public static final String PUBLIC = "PUBLIC";
     private static final CcdRoleConfig[] CCD_ROLES_NEEDED_FOR_DA = {
-        new CcdRoleConfig("caseworker-da-courtadmin", "PUBLIC"),
-        new CcdRoleConfig("caseworker-da-caseworker", "PUBLIC"),
-        new CcdRoleConfig("caseworker-da-superuser", "PUBLIC"),
-        new CcdRoleConfig("caseworker-da-la", "PUBLIC"),
-        new CcdRoleConfig("caseworker-da-judge", "PUBLIC"),
-        new CcdRoleConfig("caseworker-da-solicitor", "PUBLIC"),
-        new CcdRoleConfig("caseworker-da-systemupdate", "PUBLIC")
+        new CcdRoleConfig("caseworker-da-courtadmin", PUBLIC),
+        new CcdRoleConfig("caseworker-da-caseworker", PUBLIC),
+        new CcdRoleConfig("caseworker-da-superuser", PUBLIC),
+        new CcdRoleConfig("caseworker-da-la", PUBLIC),
+        new CcdRoleConfig("caseworker-da-judge", PUBLIC),
+        new CcdRoleConfig("caseworker-da-solicitor", PUBLIC),
+        new CcdRoleConfig("caseworker-da-systemupdate", PUBLIC)
 
     };
 

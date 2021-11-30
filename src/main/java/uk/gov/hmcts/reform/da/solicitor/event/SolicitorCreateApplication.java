@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import static java.util.Arrays.asList;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
-import static uk.gov.hmcts.reform.da.dacase.model.State.Draft;
+import static uk.gov.hmcts.reform.da.dacase.model.State.DRAFT;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.CASE_WORKER;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.DISTRICT_JUDGE;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.LEGAL_ADVISOR;
@@ -84,7 +84,7 @@ public class SolicitorCreateApplication implements CCDConfig<CaseData, State, Us
 
         return new PageBuilder(configBuilder
                                    .event(SOLICITOR_CREATE)
-                                   .initialState(Draft)
+                                   .initialState(DRAFT)
                                    .name("Apply for a domestic abuse")
                                    .description("Apply for a domestic abuse")
                                    .showSummary()
