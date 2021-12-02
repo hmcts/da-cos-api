@@ -42,3 +42,15 @@ spring:
 azure:
   application-insights:
     instrumentation-key: ${da.AppInsightsInstrumentationKey:00000000-0000-0000-0000-000000000000}
+
+core_case_data:
+  api:
+    url: ${CASE_DATA_STORE_BASEURL:http://ccd-data-store-api-aat.service.core-compute-aat.internal}
+  search:
+    page_size: ${CCD_SEARCH_PAGE_SIZE:100}
+
+s2s-authorised:
+  services: ${S2S_AUTHORISED_SERVICES:ccd_data}
+
+s2s:
+  stub: false
