@@ -47,6 +47,34 @@ def secrets = [
         ]
 ]
 
+def setCommonEnvVariables() {
+    env.IDAM_API_URL_BASE = "https://idam-api.aat.platform.hmcts.net"
+    env.S2S_URL_BASE = "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal"
+    env.FEE_API_URL = "http://fees-register-api-aat.service.core-compute-aat.internal"
+    env.CCD_API_GATEWAY_OAUTH2_CLIENT_ID = "ccd_gateway"
+    env.BEFTA_S2S_CLIENT_ID = "ccd_data"
+    env.CCD_API_GATEWAY_OAUTH2_REDIRECT_URL = "https://www-ccd.aat.platform.hmcts.net/oauth2redirect"
+}
+
+def uploadCoreCaseDataDefinitions() {
+    dir("${WORKSPACE}/bin"){
+        sh "./add-roles.sh"
+        sh "./process-and-import-ccd-definition.sh"
+    }
+    dir("${WORKSPACE}") {
+        steps.archiveArtifacts artifacts: "build/ccd-config/*.xlsx"
+    }
+}
+
+def generateDefinitions() {
+  dir("${WORKSPACE}/bin") {
+    sh "./ccd-build-definition.sh"
+  }
+  dir("${WORKSPACE}") {
+    steps.archiveArtifacts artifacts: "build/ccd-config/*.xlsx"
+  }
+}
+
 def pipelineConf = new AppPipelineConfig()
 pipelineConf.vaultSecrets = secrets
 
@@ -173,34 +201,6 @@ withPipeline(type, product, component) {
   before('functionalTest:preview') {
     // Only for preview upload the definitions via script as high level data set up relies on an existing environment
     uploadCoreCaseDataDefinitions()
-  }
-
-  def setCommonEnvVariables() {
-      env.IDAM_API_URL_BASE = "https://idam-api.aat.platform.hmcts.net"
-      env.S2S_URL_BASE = "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal"
-      env.FEE_API_URL = "http://fees-register-api-aat.service.core-compute-aat.internal"
-      env.CCD_API_GATEWAY_OAUTH2_CLIENT_ID = "ccd_gateway"
-      env.BEFTA_S2S_CLIENT_ID = "ccd_data"
-      env.CCD_API_GATEWAY_OAUTH2_REDIRECT_URL = "https://www-ccd.aat.platform.hmcts.net/oauth2redirect"
-  }
-
-  def uploadCoreCaseDataDefinitions() {
-      dir("${WORKSPACE}/bin"){
-          sh "./add-roles.sh"
-          sh "./process-and-import-ccd-definition.sh"
-      }
-      dir("${WORKSPACE}") {
-          steps.archiveArtifacts artifacts: "build/ccd-config/*.xlsx"
-      }
-  }
-
-  def generateDefinitions() {
-    dir("${WORKSPACE}/bin") {
-      sh "./ccd-build-definition.sh"
-    }
-    dir("${WORKSPACE}") {
-      steps.archiveArtifacts artifacts: "build/ccd-config/*.xlsx"
-    }
   }
 
   after('checkout') {
