@@ -62,120 +62,117 @@ withPipeline(type, product, component) {
     enableHighLevelDataSetup()
   }
 
+  after('test') {
+    builder.gradle('integration')
+    builder.gradle('jacocoTestReport')
 
+    publishHTML target: [
+      allowMissing         : true,
+      alwaysLinkToLastBuild: true,
+      keepAll              : true,
+      reportDir            : "build/reports/checkstyle",
+      reportFiles          : "main.html",
+      reportName           : "Checkstyle Main Report"
+    ]
 
-    after('test') {
-      builder.gradle('integration')
-      builder.gradle('jacocoTestReport')
+    publishHTML target: [
+      allowMissing         : true,
+      alwaysLinkToLastBuild: true,
+      keepAll              : true,
+      reportDir            : "build/reports/checkstyle",
+      reportFiles          : "test.html",
+      reportName           : "Checkstyle Test Report"
+    ]
 
-      publishHTML target: [
-        allowMissing         : true,
-        alwaysLinkToLastBuild: true,
-        keepAll              : true,
-        reportDir            : "build/reports/checkstyle",
-        reportFiles          : "main.html",
-        reportName           : "Checkstyle Main Report"
-      ]
+    publishHTML target: [
+      allowMissing         : true,
+      alwaysLinkToLastBuild: true,
+      keepAll              : true,
+      reportDir            : "build/reports/checkstyle",
+      reportFiles          : "functionalTest.html",
+      reportName           : "Checkstyle Functional Test Report"
+    ]
 
-      publishHTML target: [
-        allowMissing         : true,
-        alwaysLinkToLastBuild: true,
-        keepAll              : true,
-        reportDir            : "build/reports/checkstyle",
-        reportFiles          : "test.html",
-        reportName           : "Checkstyle Test Report"
-      ]
+    publishHTML target: [
+      allowMissing         : true,
+      alwaysLinkToLastBuild: true,
+      keepAll              : true,
+      reportDir            : "build/reports/checkstyle",
+      reportFiles          : "integrationTest.html",
+      reportName           : "Checkstyle Integration Test Report"
+    ]
 
-      publishHTML target: [
-        allowMissing         : true,
-        alwaysLinkToLastBuild: true,
-        keepAll              : true,
-        reportDir            : "build/reports/checkstyle",
-        reportFiles          : "functionalTest.html",
-        reportName           : "Checkstyle Functional Test Report"
-      ]
+    publishHTML target: [
+      allowMissing         : true,
+      alwaysLinkToLastBuild: true,
+      keepAll              : true,
+      reportDir            : "build/reports/tests/test",
+      reportFiles          : "index.html",
+      reportName           : "Unit Tests Report"
+    ]
+  }
 
-      publishHTML target: [
-        allowMissing         : true,
-        alwaysLinkToLastBuild: true,
-        keepAll              : true,
-        reportDir            : "build/reports/checkstyle",
-        reportFiles          : "integrationTest.html",
-        reportName           : "Checkstyle Integration Test Report"
-      ]
+  after('functionalTest') {
+    publishHTML target: [
+      allowMissing         : true,
+      alwaysLinkToLastBuild: true,
+      keepAll              : true,
+      reportDir            : "build/reports/tests/functional",
+      reportFiles          : "index.html",
+      reportName           : "Functional Tests Report"
+    ]
+  }
 
-      publishHTML target: [
-        allowMissing         : true,
-        alwaysLinkToLastBuild: true,
-        keepAll              : true,
-        reportDir            : "build/reports/tests/test",
-        reportFiles          : "index.html",
-        reportName           : "Unit Tests Report"
-      ]
-    }
+  after('smoketest:preview') {
+    publishHTML target: [
+      allowMissing         : true,
+      alwaysLinkToLastBuild: true,
+      keepAll              : true,
+      reportDir            : "build/reports/tests/smoke",
+      reportFiles          : "index.html",
+      reportName           : "Smoke Test Report"
+    ]
+  }
 
-    after('functionalTest') {
-      publishHTML target: [
-        allowMissing         : true,
-        alwaysLinkToLastBuild: true,
-        keepAll              : true,
-        reportDir            : "build/reports/tests/functional",
-        reportFiles          : "index.html",
-        reportName           : "Functional Tests Report"
-      ]
-    }
+  after('smoketest:aat') {
+    publishHTML target: [
+      allowMissing         : true,
+      alwaysLinkToLastBuild: true,
+      keepAll              : true,
+      reportDir            : "build/reports/tests/smoke",
+      reportFiles          : "index.html",
+      reportName           : "Smoke Test Report"
+    ]
+  }
 
-    after('smoketest:preview') {
-      publishHTML target: [
-        allowMissing         : true,
-        alwaysLinkToLastBuild: true,
-        keepAll              : true,
-        reportDir            : "build/reports/tests/smoke",
-        reportFiles          : "index.html",
-        reportName           : "Smoke Test Report"
-      ]
-    }
+  after('checkout') {
+    builder.gradle('generateCCDConfig')
+    generateDefinitions()
+  }
 
-    after('smoketest:aat') {
-      publishHTML target: [
-        allowMissing         : true,
-        alwaysLinkToLastBuild: true,
-        keepAll              : true,
-        reportDir            : "build/reports/tests/smoke",
-        reportFiles          : "index.html",
-        reportName           : "Smoke Test Report"
-      ]
-    }
+  onPR {
+    env.ENVIRONMENT="preview"
+    env.CASE_API_URL = "http://da-cos-api-pr-${CHANGE_ID}.service.core-compute-preview.internal"
+    env.CCD_DEF_NAME = "preview"
+    env.DEFINITION_STORE_URL_BASE = "https://ccd-definition-store-da-cos-api-pr-${CHANGE_ID}.service.core-compute-preview.internal"
+    env.CASE_DATA_STORE_BASEURL = "http://ccd-data-store-api-da-cos-api-pr-${CHANGE_ID}.service.core-compute-preview.internal"
+    env.TEST_S2S_URL = "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal"
 
-    after('checkout') {
-      builder.gradle('generateCCDConfig')
-      generateDefinitions()
-    }
+    setCommonEnvVariables()
+  }
 
-    onPR {
-      env.ENVIRONMENT="preview"
-      env.CASE_API_URL = "http://da-cos-api-pr-${CHANGE_ID}.service.core-compute-preview.internal"
-      env.CCD_DEF_NAME = "preview"
-      env.DEFINITION_STORE_URL_BASE = "https://ccd-definition-store-da-cos-api-pr-${CHANGE_ID}.service.core-compute-preview.internal"
-      env.CASE_DATA_STORE_BASEURL = "http://ccd-data-store-api-da-cos-api-pr-${CHANGE_ID}.service.core-compute-preview.internal"
-      env.TEST_S2S_URL = "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal"
+  onMaster {
+      env.ENVIRONMENT="aat"
+      env.CASE_API_URL="http://da-cos-api-aat.service.core-compute-aat.internal"
+      env.CCD_DEF_NAME="aat"
+      env.DEFINITION_STORE_URL_BASE="http://ccd-definition-store-api-aat.service.core-compute-aat.internal"
 
       setCommonEnvVariables()
-    }
+  }
 
-    onMaster {
-        env.ENVIRONMENT="aat"
-        env.CASE_API_URL="http://da-cos-api-aat.service.core-compute-aat.internal"
-        env.CCD_DEF_NAME="aat"
-        env.DEFINITION_STORE_URL_BASE="http://ccd-definition-store-api-aat.service.core-compute-aat.internal"
-
-        setCommonEnvVariables()
-    }
-
-    before('functionalTest:preview') {
-      // Only for preview upload the definitions via script as high level data set up relies on an existing environment
-      uploadCoreCaseDataDefinitions()
-    }
+  before('functionalTest:preview') {
+    // Only for preview upload the definitions via script as high level data set up relies on an existing environment
+    uploadCoreCaseDataDefinitions()
   }
 
   def setCommonEnvVariables() {
