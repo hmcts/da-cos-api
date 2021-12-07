@@ -240,6 +240,26 @@ def reloadCcd = tasks.register('reloadCcd') {
   }
 }
 
+generateTypeScript {
+  jsonLibrary = 'jackson2'
+  classPatterns = [
+    'uk.gov.hmcts.reform.da.**.model.*',
+    'uk.gov.hmcts.ccd.sdk.type.*',
+  ]
+  outputFile = 'build/ts/index.ts'
+  outputKind = 'module'
+  outputFileType = 'implementationFile'
+  mapEnum = 'asEnum'
+  mapDate = 'asString'
+  group = 'ccd tasks'
+
+  doLast {
+    exec {
+      commandLine 'yarn', 'prepublishOnly'
+    }
+  }
+}
+
 reloadCcd.configure {
   dependsOn assemble, generateCCDConfig
 }
