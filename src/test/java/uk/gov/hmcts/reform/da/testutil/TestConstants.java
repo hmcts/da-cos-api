@@ -23,6 +23,8 @@ public final class TestConstants {
     public static final Long TEST_CASE_ID = 1616591401473378L;
     public static final String TEST_SERVICE_AUTH_TOKEN = "Bearer TestServiceAuth";
 
+    public static final String CCD_DATA = "ccd_data";
+
     private TestConstants() {
     }
 }
