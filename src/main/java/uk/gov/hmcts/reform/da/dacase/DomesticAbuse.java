@@ -25,6 +25,7 @@ import static uk.gov.hmcts.reform.da.dacase.model.access.Permissions.READ;
 public class DomesticAbuse implements CCDConfig<CaseData, State, UserRole> {
 
     public static final String CASE_TYPE = "FL401";
+    public static final String CASE_TYPE_NAME = "FL401 Application";
     public static final String JURISDICTION = "DOMESTICABUSE";
 
     @Autowired
@@ -34,7 +35,7 @@ public class DomesticAbuse implements CCDConfig<CaseData, State, UserRole> {
     public void configure(final ConfigBuilder<CaseData, State, UserRole> configBuilder) {
         configBuilder.setCallbackHost(System.getenv().getOrDefault("CASE_API_URL", "http://da-cos-api:4550"));
 
-        configBuilder.caseType(CASE_TYPE, CASE_TYPE, "FL401 Application");
+        configBuilder.caseType(CASE_TYPE, CASE_TYPE_NAME, CASE_TYPE_NAME);
         configBuilder.jurisdiction(JURISDICTION, "Family Domestic Abuse",
                                    "Family Domestic Abuse: non-molestation or occupational order");
         configBuilder.omitHistoryForRoles(SOLICITOR, RESPONDENT_SOLICITOR);
