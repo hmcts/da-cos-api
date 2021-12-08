@@ -23,7 +23,7 @@ java:
         - name: AppInsightsInstrumentationKey
           alias: azure.application-insights.instrumentation-key
           keyVaults:
-            nfdiv:
+            da:
               secrets:
                 - name: AppInsightsInstrumentationKey
                   alias: APP_INSIGHTS_KEY

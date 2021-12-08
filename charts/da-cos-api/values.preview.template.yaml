@@ -7,7 +7,7 @@ java:
   environment:
     CASE_DATA_STORE_BASEURL: http://ccd-data-store-api-da-cos-api-pr-${CHANGE_ID}.service.core-compute-preview.internal
   keyVaults:
-    nfdiv:
+    da:
       secrets:
         - name: AppInsightsInstrumentationKey-Preview
           alias: APP_INSIGHTS_KEY
