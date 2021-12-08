@@ -18,23 +18,18 @@ java:
     minReplicas: 6
     targetCPUUtilizationPercentage: 80 # Default is 80% target CPU utilization
   keyVaults:
-    rpe:
+    da:
       secrets:
         - name: AppInsightsInstrumentationKey
-          alias: azure.application-insights.instrumentation-key
-          keyVaults:
-            da:
-              secrets:
-                - name: AppInsightsInstrumentationKey
-                  alias: APP_INSIGHTS_KEY
-                - name: s2s-cos-api-secret
-                  alias: S2S_SECRET
-                - name: idam-client-secret
-                  alias: IDAM_CLIENT_SECRET
-                - name: idam-systemupdate-username
-                  alias: IDAM_SYSTEM_UPDATE_USERNAME
-                - name: idam-systemupdate-password
-                  alias: IDAM_SYSTEM_UPDATE_PASSWORD
+          alias: APP_INSIGHTS_KEY
+        - name: s2s-cos-api-secret
+          alias: S2S_SECRET
+        - name: idam-client-secret
+          alias: IDAM_CLIENT_SECRET
+        - name: idam-systemupdate-username
+          alias: IDAM_SYSTEM_UPDATE_USERNAME
+        - name: idam-systemupdate-password
+          alias: IDAM_SYSTEM_UPDATE_PASSWORD
   environment:
     REFORM_TEAM: da
     REFORM_SERVICE_NAME: da-cos-api
