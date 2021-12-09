@@ -108,7 +108,7 @@ class SolicitorCreateApplicationTest {
     }
 
     @Test
-    public void shouldPopulateMissingRequirementsFieldsInCaseData() {
+    void shouldPopulateMissingRequirementsFieldsInCaseData() {
         final CaseData caseData = caseData();
         final CaseDetails<CaseData, State> beforeDetails = new CaseDetails<>();
         final CaseDetails<CaseData, State> details = new CaseDetails<>();

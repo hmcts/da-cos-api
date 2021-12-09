@@ -55,7 +55,7 @@ class IdamServiceTest {
     }
 
     @Test
-    public void shouldNotThrowExceptionAndRetrieveSystemUpdateUserSuccessfully() {
+    void shouldNotThrowExceptionAndRetrieveSystemUpdateUserSuccessfully() {
         setSystemUserCredentials();
 
         when(idamClient.getAccessToken(TEST_SYSTEM_UPDATE_USER_EMAIL, TEST_SYSTEM_USER_PASSWORD))
@@ -73,7 +73,7 @@ class IdamServiceTest {
     }
 
     @Test
-    public void shouldThrowFeignUnauthorizedExceptionWhenSystemUpdateUserCredentialsAreInvalid() {
+    void shouldThrowFeignUnauthorizedExceptionWhenSystemUpdateUserCredentialsAreInvalid() {
         setSystemUserCredentials();
 
         doThrow(feignException(401, "Failed to retrieve Idam user"))

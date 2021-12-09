@@ -35,7 +35,7 @@ import static uk.gov.hmcts.reform.da.testutil.TestConstants.TEST_SYSTEM_UPDATE_U
 import static uk.gov.hmcts.reform.da.testutil.TestDataHelper.feignException;
 
 @ExtendWith(MockitoExtension.class)
-public class CcdAccessServiceTest {
+class CcdAccessServiceTest {
     @InjectMocks
     private CcdAccessService ccdAccessService;
 
@@ -52,7 +52,7 @@ public class CcdAccessServiceTest {
     private AuthTokenGenerator authTokenGenerator;
 
     @Test
-    public void shouldNotThrowAnyExceptionWhenAddApplicant1RoleIsInvoked() {
+    void shouldNotThrowAnyExceptionWhenAddApplicant1RoleIsInvoked() {
         User solicitorUser = getIdamUser(APP_SOL_AUTH_TOKEN, SOLICITOR_USER_ID, TEST_SOL_USER_EMAIL);
         User systemUpdateUser = getIdamUser(SYSTEM_UPDATE_AUTH_TOKEN,
                                             SYSTEM_USER_USER_ID, TEST_SYSTEM_UPDATE_USER_EMAIL);
@@ -102,7 +102,7 @@ public class CcdAccessServiceTest {
     }
 
     @Test
-    public void shouldThrowFeignUnauthorizedExceptionWhenRetrievalOfSolicitorUserFails() {
+    void shouldThrowFeignUnauthorizedExceptionWhenRetrievalOfSolicitorUserFails() {
         doThrow(feignException(401, "Failed to retrieve Idam user"))
             .when(idamService).retrieveUser(APP_SOL_AUTH_TOKEN);
 
@@ -112,7 +112,7 @@ public class CcdAccessServiceTest {
     }
 
     @Test
-    public void shouldThrowFeignUnauthorizedExceptionWhenRetrievalOfCaseworkerTokenFails() {
+    void shouldThrowFeignUnauthorizedExceptionWhenRetrievalOfCaseworkerTokenFails() {
         User solicitorUser = getIdamUser(APP_SOL_AUTH_TOKEN, SOLICITOR_USER_ID, TEST_SOL_USER_EMAIL);
 
         when(idamService.retrieveUser(APP_SOL_AUTH_TOKEN))
@@ -131,7 +131,7 @@ public class CcdAccessServiceTest {
     }
 
     @Test
-    public void shouldThrowInvalidTokenExceptionWhenServiceAuthTokenGenerationFails() {
+    void shouldThrowInvalidTokenExceptionWhenServiceAuthTokenGenerationFails() {
         User solicitorUser = getIdamUser(APP_SOL_AUTH_TOKEN, SOLICITOR_USER_ID, TEST_SOL_USER_EMAIL);
         User systemUpdateUser = getIdamUser(SYSTEM_UPDATE_AUTH_TOKEN,
                                             SYSTEM_USER_USER_ID, TEST_SYSTEM_UPDATE_USER_EMAIL);
@@ -156,7 +156,7 @@ public class CcdAccessServiceTest {
     }
 
     @Test
-    public void shouldThrowFeignUnProcessableEntityExceptionWhenCcdClientThrowsException() {
+    void shouldThrowFeignUnProcessableEntityExceptionWhenCcdClientThrowsException() {
         User solicitorUser = getIdamUser(APP_SOL_AUTH_TOKEN, SOLICITOR_USER_ID, TEST_SOL_USER_EMAIL);
         User systemUpdateUser = getIdamUser(SYSTEM_UPDATE_AUTH_TOKEN,
                                             SYSTEM_USER_USER_ID, TEST_SYSTEM_UPDATE_USER_EMAIL);
