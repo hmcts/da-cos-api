@@ -15,13 +15,13 @@ import static uk.gov.hmcts.reform.da.dacase.model.UserRole.SOLICITOR;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.SYSTEM_UPDATE;
 
 @ExtendWith(MockitoExtension.class)
-public class AddSystemUpdateRoleTest {
+class AddSystemUpdateRoleTest {
 
     @InjectMocks
     private AddSystemUpdateRole addSystemUpdateRole;
 
     @Test
-    public void shouldAddSystemUpdateRoleWhenEnvironmentIsAat() throws Exception {
+    void shouldAddSystemUpdateRoleWhenEnvironmentIsAat() throws Exception {
         List<UserRole> actualRoles =
             withEnvironmentVariable("ENVIRONMENT", "aat")
                 .execute(() -> addSystemUpdateRole.addIfConfiguredForEnvironment(List.of(SOLICITOR))
@@ -31,7 +31,7 @@ public class AddSystemUpdateRoleTest {
     }
 
     @Test
-    public void shouldReturnTrueWhenEnvironmentIsAat() throws Exception {
+    void shouldReturnTrueWhenEnvironmentIsAat() throws Exception {
         boolean isEnvironmentAat =
             withEnvironmentVariable("ENVIRONMENT", "aat")
                 .execute(() -> addSystemUpdateRole.isEnvironmentAat()

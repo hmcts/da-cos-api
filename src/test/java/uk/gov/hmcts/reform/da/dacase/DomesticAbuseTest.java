@@ -29,7 +29,7 @@ import static uk.gov.hmcts.reform.da.dacase.model.UserRole.SYSTEM_UPDATE;
 import static uk.gov.hmcts.reform.da.testutil.ConfigTestUtil.createCaseDataConfigBuilder;
 
 @ExtendWith(MockitoExtension.class)
-public class DomesticAbuseTest {
+class DomesticAbuseTest {
 
     @Mock
     private AddSystemUpdateRole addSystemUpdateRole;

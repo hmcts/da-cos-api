@@ -24,7 +24,7 @@ import static uk.gov.hmcts.reform.da.testutil.TestConstants.TEST_SYSTEM_USER_PAS
 import static uk.gov.hmcts.reform.da.testutil.TestDataHelper.feignException;
 
 @ExtendWith(MockitoExtension.class)
-public class IdamServiceTest {
+class IdamServiceTest {
 
     @InjectMocks
     private IdamService idamService;
@@ -33,7 +33,7 @@ public class IdamServiceTest {
     private IdamClient idamClient;
 
     @Test
-    public void shouldRetrieveUserWhenValidAuthorizationTokenIsPassed() {
+    void shouldRetrieveUserWhenValidAuthorizationTokenIsPassed() {
         when(idamClient.getUserDetails(SYSTEM_UPDATE_AUTH_TOKEN))
             .thenReturn(userDetails());
 
@@ -45,7 +45,7 @@ public class IdamServiceTest {
     }
 
     @Test
-    public void shouldThrowFeignUnauthorizedExceptionWhenInValidAuthorizationTokenIsPassed() {
+    void shouldThrowFeignUnauthorizedExceptionWhenInValidAuthorizationTokenIsPassed() {
         doThrow(feignException(401, "Failed to retrieve Idam user"))
             .when(idamClient).getUserDetails("Bearer invalid_token");
 
