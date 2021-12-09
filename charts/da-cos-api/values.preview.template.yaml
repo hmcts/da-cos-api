@@ -20,7 +20,6 @@ java:
         - name: idam-systemupdate-password
           alias: IDAM_SYSTEM_UPDATE_PASSWORD
 
-
 idam-pr:
   enabled: true
   releaseNameOverride: ${SERVICE_NAME}-ccd-idam-pr
@@ -116,6 +115,13 @@ ccd:
   postgresql:
     persistence:
       enabled: false
+
+am-role-assignment-service:
+  java:
+    keyVaults:
+      am:
+        secrets:
+          - role-assignment-service-LD-SDK-KEY
 
 xui-webapp:
   enabled: true
