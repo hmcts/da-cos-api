@@ -126,16 +126,16 @@ ccd:
       userProfileDatabasePassword: hmcts
       userProfileDatabaseName: user-profile
 
+  am-role-assignment-service:
+    java:
+      keyVaults:
+        am:
+          secrets:
+            - role-assignment-service-LD-SDK-KEY
+
   postgresql:
     persistence:
       enabled: false
-
-am-role-assignment-service:
-  java:
-    keyVaults:
-      am:
-        secrets:
-          - role-assignment-service-LD-SDK-KEY
 
 xui-webapp:
   enabled: true
