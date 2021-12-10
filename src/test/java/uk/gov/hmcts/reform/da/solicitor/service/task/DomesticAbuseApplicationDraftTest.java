@@ -17,7 +17,7 @@ import static uk.gov.hmcts.reform.da.testutil.TestConstants.TEST_CASE_ID;
 import static uk.gov.hmcts.reform.da.testutil.TestDataHelper.LOCAL_DATE_TIME;
 
 @ExtendWith(MockitoExtension.class)
-public class DomesticAbuseApplicationDraftTest {
+class DomesticAbuseApplicationDraftTest {
 
     @InjectMocks
     private DomesticAbuseApplicationDraft domesticAbuseApplicationDraft;
