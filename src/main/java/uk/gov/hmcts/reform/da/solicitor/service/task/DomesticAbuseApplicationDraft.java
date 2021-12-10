@@ -18,8 +18,6 @@ public class DomesticAbuseApplicationDraft implements CaseTask {
 
         log.info("Executing handler for generating draft domestic application for case id {} ", caseId);
 
-        // TODO : Application handler goes here.
-
         return caseDetails;
     }
 }
