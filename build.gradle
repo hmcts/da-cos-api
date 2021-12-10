@@ -261,6 +261,10 @@ generateTypeScript {
   }
 }
 
+ccd {
+  configDir = file('build/definitions')
+}
+
 reloadCcd.configure {
   dependsOn assemble, generateCCDConfig
 }
@@ -310,6 +314,9 @@ ext.libraries = [
 ]
 
 dependencies {
+  // uncomment for local version
+  // implementation group: 'com.github.hmcts', name: 'ccd-config-generator', version: '0.24.8'
+
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
