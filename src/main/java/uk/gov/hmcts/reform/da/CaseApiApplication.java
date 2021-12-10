@@ -1,0 +1,39 @@
+package uk.gov.hmcts.reform.da;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.retry.annotation.EnableRetry;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import uk.gov.hmcts.reform.authorisation.ServiceAuthorisationApi;
+import uk.gov.hmcts.reform.ccd.client.CaseAssignmentApi;
+import uk.gov.hmcts.reform.ccd.client.CaseUserApi;
+import uk.gov.hmcts.reform.ccd.client.CoreCaseDataApi;
+import uk.gov.hmcts.reform.ccd.client.CoreCaseDataClientAutoConfiguration;
+import uk.gov.hmcts.reform.idam.client.IdamApi;
+
+@SpringBootApplication(
+    exclude = {CoreCaseDataClientAutoConfiguration.class},
+    scanBasePackages = {"uk.gov.hmcts.ccd.sdk", "uk.gov.hmcts.reform.da"}
+)
+@EnableFeignClients(
+    clients = {
+        IdamApi.class,
+        ServiceAuthorisationApi.class,
+        CaseUserApi.class,
+        CoreCaseDataApi.class,
+        CaseAssignmentApi.class,
+    }
+)
+@EnableScheduling
+@EnableRetry
+@EnableSwagger2
+@SuppressWarnings("HideUtilityClassConstructor") // Spring needs a constructor, its not a utility class
+@Slf4j
+public class CaseApiApplication {
+    public static void main(final String[] args) {
+        SpringApplication.run(CaseApiApplication.class, args);
+    }
+}
