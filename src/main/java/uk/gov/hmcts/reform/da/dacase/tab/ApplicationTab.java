@@ -11,9 +11,6 @@ import uk.gov.hmcts.reform.da.dacase.model.UserRole;
 @Component
 public class ApplicationTab implements CCDConfig<CaseData, State, UserRole> {
 
-    public static final String APPLICANT_KEEP_CONTACT_DETAILS_CONFIDENTIAL_NO
-        = "applicantKeepContactDetailsConfidential=\"No\"";
-
     @Override
     public void configure(final ConfigBuilder<CaseData, State, UserRole> configBuilder) {
         final Tab.TabBuilder<CaseData, UserRole> tabBuilder = configBuilder.tab("applicationDetails", "Application");
@@ -35,15 +32,10 @@ public class ApplicationTab implements CCDConfig<CaseData, State, UserRole> {
             .field("applicantMiddleName")
             .field("applicantLastName")
             .field("applicantGender")
-            .label(
-                "LabelApplicantDetailsAreConfidential-Heading",
-                "applicantKeepContactDetailsConfidential=\"Yes\"",
-                "#### The applicant's contact details are confidential"
-            )
-            .field("applicantPhoneNumber", APPLICANT_KEEP_CONTACT_DETAILS_CONFIDENTIAL_NO)
-            .field("applicantEmail", APPLICANT_KEEP_CONTACT_DETAILS_CONFIDENTIAL_NO)
-            .field("applicantHomeAddress", APPLICANT_KEEP_CONTACT_DETAILS_CONFIDENTIAL_NO)
-            .field("applicantCorrespondenceAddress", APPLICANT_KEEP_CONTACT_DETAILS_CONFIDENTIAL_NO);
+            .field("applicantPhoneNumber")
+            .field("applicantEmail")
+            .field("applicantHomeAddress")
+            .field("applicantCorrespondenceAddress");
     }
 
 }
