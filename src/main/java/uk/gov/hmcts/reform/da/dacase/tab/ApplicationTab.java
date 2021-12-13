@@ -22,6 +22,7 @@ public class ApplicationTab implements CCDConfig<CaseData, State, UserRole> {
     private void addHeaderFields(final Tab.TabBuilder<CaseData, UserRole> tabBuilder) {
         tabBuilder
             .field("createdDate")
+            .field(CaseData::getCaseName)
             .field(CaseData::getApplicationType);
     }
 
