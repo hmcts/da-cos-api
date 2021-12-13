@@ -14,8 +14,7 @@ import uk.gov.hmcts.reform.da.common.ccd.PageBuilder;
 import uk.gov.hmcts.reform.da.dacase.model.CaseData;
 import uk.gov.hmcts.reform.da.dacase.model.State;
 import uk.gov.hmcts.reform.da.dacase.model.UserRole;
-import uk.gov.hmcts.reform.da.solicitor.event.page.DACaseName;
-import uk.gov.hmcts.reform.da.solicitor.event.page.SolAboutApplicant;
+import uk.gov.hmcts.reform.da.solicitor.event.page.DaCaseName;
 import uk.gov.hmcts.reform.da.solicitor.service.CcdAccessService;
 import uk.gov.hmcts.reform.da.solicitor.service.SolicitorCreateApplicationService;
 
@@ -58,7 +57,7 @@ public class SolicitorCreateApplication implements CCDConfig<CaseData, State, Us
         final PageBuilder pageBuilder = addEventConfig(configBuilder);
 
         final List<CcdPageConfiguration> pages = asList(
-            new DACaseName()
+            new DaCaseName()
         );
 
         pages.forEach(page -> page.addTo(pageBuilder));
