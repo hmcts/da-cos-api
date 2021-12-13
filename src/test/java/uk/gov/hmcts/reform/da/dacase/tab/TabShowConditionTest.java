@@ -1,7 +1,6 @@
 package uk.gov.hmcts.reform.da.dacase.tab;
 
 import org.junit.jupiter.api.Test;
-import uk.gov.hmcts.reform.da.dacase.model.State;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static uk.gov.hmcts.reform.da.dacase.model.State.DRAFT;

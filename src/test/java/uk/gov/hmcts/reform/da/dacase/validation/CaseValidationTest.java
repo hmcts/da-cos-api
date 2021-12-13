@@ -1,14 +1,14 @@
 package uk.gov.hmcts.reform.da.dacase.validation;
 
 import org.junit.jupiter.api.Test;
-import uk.gov.hmcts.reform.da.dacase.model.Application;
 import uk.gov.hmcts.reform.da.dacase.model.CaseData;
 
 import java.util.List;
 
-
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static uk.gov.hmcts.reform.da.dacase.validation.ValidationUtil.*;
+import static uk.gov.hmcts.reform.da.dacase.validation.ValidationUtil.notNull;
+import static uk.gov.hmcts.reform.da.dacase.validation.ValidationUtil.validateApplicantBasicCase;
+import static uk.gov.hmcts.reform.da.dacase.validation.ValidationUtil.validateBasicCase;
 
 public class CaseValidationTest {
     private static final String EMPTY = " cannot be empty or null";

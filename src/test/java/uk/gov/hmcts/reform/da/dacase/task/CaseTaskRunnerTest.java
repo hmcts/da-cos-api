@@ -1,7 +1,6 @@
 package uk.gov.hmcts.reform.da.dacase.task;
 
 import org.junit.jupiter.api.Test;
-
 import uk.gov.hmcts.ccd.sdk.api.CaseDetails;
 import uk.gov.hmcts.reform.da.dacase.model.Applicant;
 import uk.gov.hmcts.reform.da.dacase.model.CaseData;
