@@ -25,6 +25,8 @@ public final class TestConstants {
 
     public static final String CCD_DATA = "ccd_data";
 
+    public static final String TEST_APPLICANT_EMAIL_ID = "testapplicant@test.com";
+
     private TestConstants() {
     }
 }
