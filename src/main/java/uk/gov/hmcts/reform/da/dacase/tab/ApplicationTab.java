@@ -29,7 +29,7 @@ public class ApplicationTab implements CCDConfig<CaseData, State, UserRole> {
     private void addCaseInfo(final Tab.TabBuilder<CaseData, UserRole> tabBuilder) {
         tabBuilder
             .label("CaseInfo", null, "### CaseInfo name")
-            .field("caseInfocaseName");
+            .field("caseInfoCaseName");
     }
 
 }
