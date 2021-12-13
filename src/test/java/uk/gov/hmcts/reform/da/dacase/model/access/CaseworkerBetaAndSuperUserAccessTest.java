@@ -18,9 +18,9 @@ import static uk.gov.hmcts.reform.da.dacase.model.UserRole.SYSTEM_UPDATE;
 class CaseworkerBetaAndSuperUserAccessTest {
 
     @Test
-    void shouldGrantCaseworkerAndSuperUserAccess() {
+    void shouldGrantCaseworkerBetaAndSuperUserAccess() {
 
-        final SetMultimap<HasRole, Permission> grants = new CaseworkerAndSuperUserAccess().getGrants();
+        final SetMultimap<HasRole, Permission> grants = new CaseworkerBetaAndSuperUserAccess().getGrants();
 
         assertThat(grants)
             .hasSize(10)
