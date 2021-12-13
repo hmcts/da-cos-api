@@ -16,27 +16,20 @@ public class ApplicationTab implements CCDConfig<CaseData, State, UserRole> {
         final Tab.TabBuilder<CaseData, UserRole> tabBuilder = configBuilder.tab("applicationDetails", "Application");
 
         addHeaderFields(tabBuilder);
-        addApplicant(tabBuilder);
+        addCaseInfo(tabBuilder);
     }
 
     private void addHeaderFields(final Tab.TabBuilder<CaseData, UserRole> tabBuilder) {
         tabBuilder
             .field("createdDate")
-            .field(CaseData::getCaseName)
+            .field(CaseData::getCaseInfo)
             .field(CaseData::getApplicationType);
     }
 
-    private void addApplicant(final Tab.TabBuilder<CaseData, UserRole> tabBuilder) {
+    private void addCaseInfo(final Tab.TabBuilder<CaseData, UserRole> tabBuilder) {
         tabBuilder
-            .label("LabelApplicant-Heading", null, "### The applicant")
-            .field("applicantFirstName")
-            .field("applicantMiddleName")
-            .field("applicantLastName")
-            .field("applicantGender")
-            .field("applicantPhoneNumber")
-            .field("applicantEmail")
-            .field("applicantHomeAddress")
-            .field("applicantCorrespondenceAddress");
+            .label("caseInfo", null, "### Case name")
+            .field("caseName");
     }
 
 }

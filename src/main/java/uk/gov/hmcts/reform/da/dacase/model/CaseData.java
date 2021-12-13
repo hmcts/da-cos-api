@@ -18,10 +18,10 @@ import static uk.gov.hmcts.ccd.sdk.type.FieldType.MultiSelectList;
 @Builder(toBuilder = true)
 public class CaseData {
 
-    @JsonUnwrapped(prefix = "applicant")
+    @JsonUnwrapped(prefix = "caseInfo")
     @Builder.Default
     @CCD(access = {DefaultAccess.class})
-    private String caseName = "";
+    private CaseInfo caseInfo = new CaseInfo();
 
     @CCD(
         label = "Application type",
