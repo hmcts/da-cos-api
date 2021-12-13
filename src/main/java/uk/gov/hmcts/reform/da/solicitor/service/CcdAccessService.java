@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Set;
 
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.APPLICANT_SOLICITOR;
-import static uk.gov.hmcts.reform.da.dacase.model.UserRole.CREATOR;
 
 @Service
 @Slf4j
@@ -59,7 +58,7 @@ public class CcdAccessService {
                     List.of(
                         CaseAssignmentUserRoleWithOrganisation.builder()
                             .caseDataId(caseId.toString())
-                            .caseRole(CREATOR.getRole())
+                            .caseRole(APPLICANT_SOLICITOR.getRole())
                             .userId(solicitorUserId)
                             .build()
                     )

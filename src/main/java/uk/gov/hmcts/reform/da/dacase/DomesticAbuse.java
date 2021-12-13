@@ -14,7 +14,6 @@ import static uk.gov.hmcts.reform.da.dacase.model.UserRole.CASE_WORKER;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.COURT_ADMIN;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.DISTRICT_JUDGE;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.LEGAL_ADVISOR;
-import static uk.gov.hmcts.reform.da.dacase.model.UserRole.RESPONDENT_SOLICITOR;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.SOLICITOR;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.SUPER_USER;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.SYSTEM_UPDATE;
@@ -38,7 +37,6 @@ public class DomesticAbuse implements CCDConfig<CaseData, State, UserRole> {
         configBuilder.caseType(CASE_TYPE, CASE_TYPE_NAME, CASE_TYPE_NAME);
         configBuilder.jurisdiction(JURISDICTION, "Family Domestic Abuse",
                                    "Family Domestic Abuse: non-molestation or occupational order");
-        configBuilder.omitHistoryForRoles(SOLICITOR, RESPONDENT_SOLICITOR);
 
         configBuilder.grant(DRAFT, CREATE_READ_UPDATE, SOLICITOR);
         configBuilder.grant(DRAFT, CREATE_READ_UPDATE, SUPER_USER);

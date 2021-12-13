@@ -22,14 +22,13 @@ public class CaseTypeTab implements CCDConfig<CaseData, State, UserRole> {
 
     private void buildStateTab(ConfigBuilder<CaseData, State, UserRole> configBuilder) {
         configBuilder.tab("state", "State")
-            .forRoles(UserRole.RESPONDENT_SOLICITOR)
+            .forRoles(UserRole.APPLICANT_SOLICITOR)
             .label("LabelState", null, "#### Case State:  ${[STATE]}");
     }
 
     private void buildConfidentialTab(ConfigBuilder<CaseData, State, UserRole> configBuilder) {
         configBuilder.tab("Confidential", "Confidential Address")
             .forRoles(CASE_WORKER, LEGAL_ADVISOR, DISTRICT_JUDGE)
-            .showCondition("applicantKeepContactDetailsConfidential=\"keep\"")
             .field("applicantCorrespondenceAddress")
             .field("applicantPhoneNumber")
             .field("applicantEmail")
