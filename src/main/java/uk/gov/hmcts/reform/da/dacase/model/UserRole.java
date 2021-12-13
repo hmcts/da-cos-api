@@ -8,14 +8,14 @@ import uk.gov.hmcts.ccd.sdk.api.HasRole;
 @AllArgsConstructor
 @Getter
 public enum UserRole implements HasRole {
-
-    CASE_WORKER("caseworker-da-caseworker", "CRU"),
-    COURT_ADMIN("caseworker-da-courtadmin", "CRU"),
-    LEGAL_ADVISOR("caseworker-da-la", "CRU"),
-    DISTRICT_JUDGE("caseworker-da-judge", "CRU"),
-    SUPER_USER("caseworker-da-superuser", "CRU"),
-    SYSTEM_UPDATE("caseworker-da-systemupdate", "CRU"),
-    SOLICITOR("caseworker-da-solicitor", "CRU"),
+    DOMESTIC_ABUSE_GENERIC("caseworker-domesticabuse", "CRU"),
+    CASE_WORKER("caseworker-domesticabuse-caseworker", "CRU"),
+    COURT_ADMIN("caseworker-domesticabuse-courtadmin", "CRU"),
+    LEGAL_ADVISOR("caseworker-domesticabuse-la", "CRU"),
+    DISTRICT_JUDGE("caseworker-domesticabuse-judge", "CRU"),
+    SUPER_USER("caseworker-domesticabuse-superuser", "CRU"),
+    SYSTEM_UPDATE("caseworker-domesticabuse-systemupdate", "CRU"),
+    SOLICITOR("caseworker-domesticabuse-solicitor", "CRU"),
     APPLICANT_SOLICITOR("[APPLICANTSOLICITOR]", "CRU");
 
     @JsonValue

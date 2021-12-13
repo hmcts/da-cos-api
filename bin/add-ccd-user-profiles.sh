@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 read -r -d '' CCD_USERS << EOM
-DaCaseWorkerUser@AAT.com|DOEMSTICABUSE|FL401|Submitted
-TEST_CASE_WORKER_USER@mailinator.com|DOEMSTICABUSE|FL401|Submitted
-TEST_SOLICITOR@mailinator.com|DOEMSTICABUSE|FL401|Submitted
-da_as_caseworker_admin@mailinator.com|DOEMSTICABUSE|FL401|Submitted
+DivCaseWorkerUser@AAT.com|DOEMSTICABUSE|FL401|DRAFT
+TEST_CASE_WORKER_USER@mailinator.com|DOEMSTICABUSE|FL401|DRAFT
+TEST_SOLICITOR@mailinator.com|DOEMSTICABUSE|FL401|DRAFT
+da_as_caseworker_admin@mailinator.com|DOEMSTICABUSE|FL401|DRAFT
 EOM
 
 echo "Getting service_token from s2s"
