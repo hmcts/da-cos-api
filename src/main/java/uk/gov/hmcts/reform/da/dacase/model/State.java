@@ -9,7 +9,7 @@ import uk.gov.hmcts.ccd.sdk.api.CCD;
 public enum State {
     @CCD(
         name = "Draft",
-        label = "# **${[CASE_REFERENCE]}** ${applicantLastName} **&** ${respondentLastName}\n### **${[STATE]}**\n"
+        label = "# **${[CASE_REFERENCE]}**"
     )
     Draft("FL401 application case drafted");
 
