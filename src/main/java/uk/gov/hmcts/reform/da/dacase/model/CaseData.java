@@ -16,7 +16,8 @@ import static uk.gov.hmcts.ccd.sdk.type.FieldType.MultiSelectList;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class CaseData {
+public
+class CaseData {
 
     @CCD(
         label = "Application type",
