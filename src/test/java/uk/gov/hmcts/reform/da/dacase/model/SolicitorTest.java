@@ -5,7 +5,7 @@ import uk.gov.hmcts.ccd.sdk.type.YesOrNo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SolicitorTest {
+class SolicitorTest {
     @Test
     void shouldReturnTrueIfApplicantHasOngoingCourtProceedings() {
         final var application = Solicitor.builder()
