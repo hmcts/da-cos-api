@@ -9,7 +9,7 @@ import uk.gov.hmcts.reform.da.dacase.model.State;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static uk.gov.hmcts.reform.da.dacase.task.CaseTaskRunner.caseTasks;
 
-public class CaseTaskRunnerTest {
+class CaseTaskRunnerTest {
 
     @Test
     void shouldReturnReducedFunctionWrappedInCaseTaskRunnerAndBeAppliedToCaseDetails() {
