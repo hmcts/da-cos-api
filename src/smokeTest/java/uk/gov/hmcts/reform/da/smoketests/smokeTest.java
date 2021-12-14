@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest()
-public class SmokeTest {
+public class smokeTest {
 
     @Value("${test.url:http://localhost:4550}")
     private String testUrl;
