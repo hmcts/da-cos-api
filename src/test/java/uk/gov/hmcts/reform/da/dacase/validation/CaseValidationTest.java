@@ -5,6 +5,7 @@ import uk.gov.hmcts.reform.da.dacase.model.CaseData;
 
 import java.util.List;
 
+import static java.util.Collections.emptyList;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static uk.gov.hmcts.reform.da.dacase.validation.ValidationUtil.notNull;
 import static uk.gov.hmcts.reform.da.dacase.validation.ValidationUtil.validateApplicantBasicCase;
@@ -34,5 +35,11 @@ class CaseValidationTest {
         List<String> response = notNull(null, "field");
 
         assertThat(response).isEqualTo(List.of("field" + EMPTY));
+    }
+
+    @Test
+    void shouldReturnEmptyListWhenStringIsNotNull() {
+        List<String> response = notNull("testing", "field");
+        assertThat(response).isEqualTo(emptyList());
     }
 }
