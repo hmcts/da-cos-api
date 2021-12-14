@@ -157,8 +157,17 @@ project.tasks['sonarqube'].dependsOn jacocoTestReport
 def sonarExclusions = [
   '**/uk/gov/hmcts/refrom/da/common/ccd/**',
   '**/uk/gov/hmcts/refrom/da/common/ccd/HighLevelDataSetupApp.java',
+  '**/uk/gov/hmcts/refrom/da/common/config/AuthConfiguration.java',
   '**/uk/gov/hmcts/reform/da/CaseApiApplication.java',
-  '**/uk/gov/hmcts/reform/da/common/config/**'
+  '**/uk/gov/hmcts/reform/da/controllers/RootController.java',
+  '**/uk/gov/hmcts/reform/da/common/config/**',
+  '**/uk/gov/hmcts/refrom/da/config/SwaggerConfiguration.java',
+  '**/uk/gov/hmcts/refrom/da/dacase/search/SearchInputFields.java',
+  '**/uk/gov/hmcts/refrom/da/dacase/search/SearchCasesResultFields.java',
+  '**/uk/gov/hmcts/refrom/da/dacase/search/SearchResultFields.java',
+  '**/uk/gov/hmcts/refrom/da/dacase/tab/CaseTypeTab.java',
+  '**/uk/gov/hmcts/refrom/da/dacase/tab/ApplicationTab.java',
+  '**/uk/gov/hmcts/refrom/da/dacase/model/ConfidentialAddress.java'
 
 
 ]
