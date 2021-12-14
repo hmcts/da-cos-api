@@ -167,7 +167,9 @@ def sonarExclusions = [
   '**/uk/gov/hmcts/refrom/da/dacase/search/SearchResultFields.java',
   '**/uk/gov/hmcts/refrom/da/dacase/tab/CaseTypeTab.java',
   '**/uk/gov/hmcts/refrom/da/dacase/tab/ApplicationTab.java',
-  '**/uk/gov/hmcts/refrom/da/dacase/model/ConfidentialAddress.java'
+  '**/uk/gov/hmcts/reform/da/dacase/model/**',
+  '**/uk/gov/hmcts/reform/da/dacase/search/**',
+  '**/uk/gov/hmcts/reform/da/dacase/tab/**'
 
 
 ]
