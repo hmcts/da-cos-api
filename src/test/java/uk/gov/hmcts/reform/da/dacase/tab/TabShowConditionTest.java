@@ -7,7 +7,7 @@ import static uk.gov.hmcts.reform.da.dacase.model.State.DRAFT;
 import static uk.gov.hmcts.reform.da.dacase.model.State.SUBMITTED;
 import static uk.gov.hmcts.reform.da.dacase.tab.TabShowCondition.andNotShowForState;
 
-public class TabShowConditionTest {
+class TabShowConditionTest {
     @Test
     void shouldOnlyShowTabIfCaseStateIsNotAnyOfGivenStates() {
         assertThat((andNotShowForState(DRAFT, SUBMITTED)))

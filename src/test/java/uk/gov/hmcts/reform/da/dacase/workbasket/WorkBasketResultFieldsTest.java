@@ -12,7 +12,7 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static uk.gov.hmcts.reform.da.testutil.ConfigTestUtil.createCaseDataConfigBuilder;
 import static uk.gov.hmcts.reform.da.testutil.ConfigTestUtil.getWorkBasketResultFields;
 
-public class WorkBasketResultFieldsTest {
+class WorkBasketResultFieldsTest {
 
     private WorkBasketResultFields workBasketResultFields;
 
