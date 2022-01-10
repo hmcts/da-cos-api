@@ -14,7 +14,7 @@ import uk.gov.hmcts.reform.da.common.ccd.PageBuilder;
 import uk.gov.hmcts.reform.da.dacase.model.CaseData;
 import uk.gov.hmcts.reform.da.dacase.model.State;
 import uk.gov.hmcts.reform.da.dacase.model.UserRole;
-import uk.gov.hmcts.reform.da.solicitor.event.page.SolAboutApplicant;
+import uk.gov.hmcts.reform.da.solicitor.event.page.DaCaseName;
 import uk.gov.hmcts.reform.da.solicitor.service.CcdAccessService;
 import uk.gov.hmcts.reform.da.solicitor.service.SolicitorCreateApplicationService;
 
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import static java.util.Arrays.asList;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
-import static uk.gov.hmcts.reform.da.dacase.model.State.DRAFT;
+import static uk.gov.hmcts.reform.da.dacase.model.State.Draft;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.CASE_WORKER;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.DISTRICT_JUDGE;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.LEGAL_ADVISOR;
@@ -57,7 +57,7 @@ public class SolicitorCreateApplication implements CCDConfig<CaseData, State, Us
         final PageBuilder pageBuilder = addEventConfig(configBuilder);
 
         final List<CcdPageConfiguration> pages = asList(
-            new SolAboutApplicant()
+            new DaCaseName()
         );
 
         pages.forEach(page -> page.addTo(pageBuilder));
@@ -84,7 +84,7 @@ public class SolicitorCreateApplication implements CCDConfig<CaseData, State, Us
 
         return new PageBuilder(configBuilder
                                    .event(SOLICITOR_CREATE)
-                                   .initialState(DRAFT)
+                                   .initialState(Draft)
                                    .name("Apply for a domestic abuse")
                                    .description("Apply for a domestic abuse")
                                    .showSummary()
@@ -99,7 +99,6 @@ public class SolicitorCreateApplication implements CCDConfig<CaseData, State, Us
 
     public SubmittedCallbackResponse submitted(CaseDetails<CaseData, State> details,
                                                CaseDetails<CaseData, State> before) {
-        log.info("Adding the applicant's solicitor case roles");
         ccdAccessService.addApplicantSolicitorRole(
             httpServletRequest.getHeader(AUTHORIZATION),
             details.getId()

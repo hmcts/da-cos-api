@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 import static uk.gov.hmcts.ccd.sdk.api.Permission.C;
 import static uk.gov.hmcts.ccd.sdk.api.Permission.R;
 import static uk.gov.hmcts.ccd.sdk.api.Permission.U;
-import static uk.gov.hmcts.reform.da.dacase.model.State.DRAFT;
+import static uk.gov.hmcts.reform.da.dacase.model.State.Draft;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.CASE_WORKER;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.LEGAL_ADVISOR;
 import static uk.gov.hmcts.reform.da.dacase.model.UserRole.SOLICITOR;
@@ -48,19 +48,19 @@ class DomesticAbuseTest {
         assertThat(configBuilder.build().getCaseType()).isEqualTo("FL401");
 
         assertThat(configBuilder.build().getStateRolePermissions().columnMap().get(SYSTEM_UPDATE))
-            .contains(entry(DRAFT, Set.of(C, R, U)));
+            .contains(entry(Draft, Set.of(C, R, U)));
 
         assertThat(configBuilder.build().getStateRolePermissions().columnMap().get(SOLICITOR))
-            .contains(entry(DRAFT, Set.of(C, R, U)));
+            .contains(entry(Draft, Set.of(C, R, U)));
 
         assertThat(configBuilder.build().getStateRolePermissions().columnMap().get(SUPER_USER))
-            .contains(entry(DRAFT, Set.of(C, R, U)));
+            .contains(entry(Draft, Set.of(C, R, U)));
 
         assertThat(configBuilder.build().getStateRolePermissions().columnMap().get(LEGAL_ADVISOR))
-            .contains(entry(DRAFT, Set.of(R)));
+            .contains(entry(Draft, Set.of(R)));
 
         assertThat(configBuilder.build().getStateRolePermissions().columnMap().get(CASE_WORKER))
-            .contains(entry(DRAFT, Set.of(C, R, U)));
+            .contains(entry(Draft, Set.of(C, R, U)));
 
         verify(addSystemUpdateRole).isEnvironmentAat();
     }
@@ -76,16 +76,16 @@ class DomesticAbuseTest {
         assertThat(configBuilder.build().getCaseType()).isEqualTo("FL401");
 
         assertThat(configBuilder.build().getStateRolePermissions().columnMap().get(SOLICITOR))
-            .contains(entry(DRAFT, Set.of(C, R, U)));
+            .contains(entry(Draft, Set.of(C, R, U)));
 
         assertThat(configBuilder.build().getStateRolePermissions().columnMap().get(SUPER_USER))
-            .contains(entry(DRAFT, Set.of(C, R, U)));
+            .contains(entry(Draft, Set.of(C, R, U)));
 
         assertThat(configBuilder.build().getStateRolePermissions().columnMap().get(LEGAL_ADVISOR))
-            .contains(entry(DRAFT, Set.of(R)));
+            .contains(entry(Draft, Set.of(R)));
 
         assertThat(configBuilder.build().getStateRolePermissions().columnMap().get(CASE_WORKER))
-            .contains(entry(DRAFT, Set.of(C, R, U)));
+            .contains(entry(Draft, Set.of(C, R, U)));
 
         verify(addSystemUpdateRole).isEnvironmentAat();
     }
